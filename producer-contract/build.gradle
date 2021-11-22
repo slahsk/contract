@@ -18,6 +18,7 @@ dependencies {
 
 }
 
+
 contractTest {
     useJUnitPlatform()
     testLogging {
@@ -26,6 +27,7 @@ contractTest {
 }
 
 publishing {
+    version '0.0.1'
     publications {
         mavenJava(MavenPublication) {
             artifact verifierStubsJar

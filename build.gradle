@@ -32,7 +32,7 @@ subprojects {
 
     repositories {
         mavenCentral()
-
+        mavenLocal()
     }
 
     ext {

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     private final UserService userService;
 
-    @GetMapping("/get/{id}")
+    @GetMapping("/users/{id}")
     public ResponseEntity<User> get(@PathVariable Long id){
         return ResponseEntity.ok(userService.get(id));
     }
