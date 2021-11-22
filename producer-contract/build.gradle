@@ -1,0 +1,34 @@
+apply plugin: 'org.springframework.cloud.contract'
+
+
+bootJar{
+    enabled = false
+}
+
+contracts {
+    contractsDslDir = file("${projectDir}/src/main/resources/contracts")
+    packageWithBaseClasses = 'org.slahsk.contract'
+}
+
+dependencies {
+    testImplementation project(":producer")
+    implementation "org.springframework.cloud:spring-cloud-starter-contract-verifier"
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-web'
+
+}
+
+contractTest {
+    useJUnitPlatform()
+    testLogging {
+        exceptionFormat = 'full'
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifact verifierStubsJar
+        }
+    }
+}
